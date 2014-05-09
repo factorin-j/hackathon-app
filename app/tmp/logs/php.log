@@ -1,0 +1,41 @@
+[08-May-2014 11:07:50 UTC] PHP Fatal error:  Uncaught exception 'DCException' with message 'invalid url format' in /var/www/dietcake/dietcake/core/dispatcher.php:29
+Stack trace:
+#0 /var/www/dietcake/dietcake/core/dispatcher.php(6): Dispatcher::parseAction(NULL)
+#1 /var/www/dietcake/app/webroot/index.php(7): Dispatcher::invoke()
+#2 {main}
+  thrown in /var/www/dietcake/dietcake/core/dispatcher.php on line 29
+[08-May-2014 11:09:33 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'board_root'@'localhost' (using password: YES)' in /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php:20
+Stack trace:
+#0 /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php(20): PDO->__construct('mysql:host=loca...', 'board_root', 'board_root', Array)
+#1 /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php(71): SimpleDBI->__construct('mysql:host=loca...', 'board_root', 'board_root', Array)
+#2 /var/www/dietcake/app/models/thread.php(23): SimpleDBI::conn()
+#3 /var/www/dietcake/app/controllers/thread_controller.php(6): Thread::getAll()
+#4 /var/www/dietcake/dietcake/core/controller.php(46): ThreadController->index()
+#5 /var/www/dietcake/dietcake/core/dispatcher.php(12): Controller->dispatchAction()
+#6 /var/www/dietcake/app/webroot/index.php(7): Dispatcher::invoke()
+#7 {main}
+  thrown in /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php on line 20
+[09-May-2014 02:25:41 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'board_root'@'localhost' (using password: YES)' in /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php:20
+Stack trace:
+#0 /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php(20): PDO->__construct('mysql:host=loca...', 'board_root', 'board_root', Array)
+#1 /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php(71): SimpleDBI->__construct('mysql:host=loca...', 'board_root', 'board_root', Array)
+#2 /var/www/dietcake/app/models/thread.php(23): SimpleDBI::conn()
+#3 /var/www/dietcake/app/controllers/thread_controller.php(6): Thread::getAll()
+#4 /var/www/dietcake/dietcake/core/controller.php(46): ThreadController->index()
+#5 /var/www/dietcake/dietcake/core/dispatcher.php(12): Controller->dispatchAction()
+#6 /var/www/dietcake/app/webroot/index.php(7): Dispatcher::invoke()
+#7 {main}
+  thrown in /var/www/dietcake/vendor/SimpleDBI/SimpleDBI.php on line 20
+[09-May-2014 03:41:46 UTC] PHP Fatal error:  Uncaught exception 'DCException' with message '/var/www/web/app/views/home/index.php is not found' in /var/www/web/dietcake/core/view.php:44
+Stack trace:
+#0 /var/www/web/app/app_layout_view.php(23): View->extract()
+#1 /var/www/web/dietcake/core/controller.php(83): AppLayoutView->render(NULL)
+#2 /var/www/web/dietcake/core/controller.php(48): Controller->render()
+#3 /var/www/web/dietcake/core/dispatcher.php(12): Controller->dispatchAction()
+#4 /var/www/web/app/webroot/index.php(7): Dispatcher::invoke()
+#5 {main}
+  thrown in /var/www/web/dietcake/core/view.php on line 44
+[09-May-2014 03:43:18 UTC] PHP Fatal error:  Call to undefined function url() in /var/www/web/app/views/layouts/default.php on line 20
+[09-May-2014 03:43:26 UTC] PHP Fatal error:  Call to undefined function url() in /var/www/web/app/views/layouts/default.php on line 20
+[09-May-2014 03:54:01 UTC] PHP Fatal error:  Class 'ApiView' not found in /var/www/web/dietcake/core/controller.php on line 15
+[09-May-2014 06:48:28 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /var/www/web/app/controllers/sms_controller.php on line 19
