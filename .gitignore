@@ -1,1 +1,4 @@
+.idea
 app/config/core.php
+app/webroot/uploads/images/*
+app/tmp/logs/*

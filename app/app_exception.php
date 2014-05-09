@@ -7,3 +7,7 @@
 class AppException extends Exception
 {
 }
+
+class RecordNotFoundException extends PDOException
+{
+}
