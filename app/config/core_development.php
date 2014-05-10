@@ -5,7 +5,7 @@ define('APP_HOST', $_SERVER['HTTP_HOST']);
 define('APP_BASE_PATH', '/');
 define('APP_URL', 'http://' . APP_HOST . '/');
 define('AUTH_DIR', __DIR__ . '/auth/');
-define('IMAGE_UPLOADS_DIR', APP_DIR . 'webroot/uploads/images/');
+define('IMAGE_UPLOADS_DIR', '/uploads/images/');
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
