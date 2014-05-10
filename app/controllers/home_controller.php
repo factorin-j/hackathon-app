@@ -5,7 +5,16 @@ class HomeController extends ApiController
     public function feeds()
     {
         $token = Param::getToken();
-        $feed_list = Feed::getAll($token);
+        $view_type = Param::get('view_type');
+
+        switch ($view_type) {
+            case 'rank':
+                $feed_list = Feed::getAllByRank($token);
+                break;
+            case 'normal':
+            default:
+                $feed_list = Feed::getAll($token);
+        }
         $this->toJson(array(
             'feed_list' => $feed_list
         ));

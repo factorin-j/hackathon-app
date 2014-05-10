@@ -29,7 +29,24 @@ class Feed
     public static function getAll($token)
     {
         $con = DB::conn();
-        $feeds = $con->rows('SELECT * FROM feed ORDER BY created DESC');
+        $feeds = $con->rows('SELECT * FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY created DESC');
+        if (!$feeds) {
+            return null;
+        }
+
+        $feed_list = array();
+        foreach ($feeds as $feed) {
+            $vote_status = VoteStatus::get($feed['id'], $token);
+            $feed['has_voted'] = $vote_status ? true : false;
+            $feed['vote_type'] = $vote_status['type'];
+        }
+        return $feed_list;
+    }
+
+    public static function getAllByRank($token)
+    {
+        $con = DB::conn();
+        $feeds = $con->rows('SELECT *, (score/POWER(((NOW()-created)/60)/60,1.8)) AS rank FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY rank DESC');
         if (!$feeds) {
             return null;
         }
