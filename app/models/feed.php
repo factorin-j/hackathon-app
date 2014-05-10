@@ -29,7 +29,7 @@ class Feed
     public static function getAll($token)
     {
         $con = DB::conn();
-        $feeds = $con->rows('SELECT * FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY created DESC');
+        $feeds = $con->rows('SELECT *, feed.token FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY created DESC');
         if (!$feeds) {
             return null;
         }
@@ -46,7 +46,7 @@ class Feed
     public static function getAllByRank($token)
     {
         $con = DB::conn();
-        $feeds = $con->rows('SELECT *, (score/POWER(((NOW()-created)/60)/60,1.8)) AS rank FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY rank DESC');
+        $feeds = $con->rows('SELECT *, feed.token, (score/POWER(((NOW()-created)/60)/60,1.8)) AS rank FROM feed LEFT JOIN block_list ON block_list.token = feed.token WHERE block_list.token IS NULL ORDER BY rank DESC');
         if (!$feeds) {
             return null;
         }
