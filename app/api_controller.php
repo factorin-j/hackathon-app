@@ -9,6 +9,10 @@ class ApiController extends Controller
     public function dispatchAction()
     {
         try {
+            if (!Param::isMethod('post')) {
+                throw new AppException('Invalid application request access');
+            }
+
             $this->checkPassActions();
             parent::dispatchAction();
         } catch (Exception $e) {
