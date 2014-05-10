@@ -59,7 +59,7 @@ class HomeController extends ApiController
 
         $picture_path = Picture::getUploadPath($picture);
         if ($picture_path) {
-            Picture::upload($picture, $picture_path);
+            Picture::upload($picture, APP_DIR . 'webroot' . $picture_path);
         }
 
         $recent_feed = Feed::post($message, $picture_path, $location, $token);
