@@ -31,21 +31,25 @@ CREATE TABLE IF NOT EXISTS `user` (
   DEFAULT CHARSET =utf8;
 
 CREATE TABLE IF NOT EXISTS `vote_status` (
-  `feed_id` INT UNSIGNED NOT NULL,
-  `token`   CHAR(32)     NOT NULL,
-  `type`     ENUM('positive', 'negative') NOT NULL,
+  `feed_id` INT UNSIGNED                 NOT NULL,
+  `token`   CHAR(32)                     NOT NULL,
+  `type`    ENUM('positive', 'negative') NOT NULL,
   PRIMARY KEY (feed_id, token)
 )
   ENGINE =InnoDB
   DEFAULT CHARSET =utf8;
 
 CREATE TABLE IF NOT EXISTS `inquiry` (
-  `id` INT UNSIGNED NOT NULL,
-  `phone`   CHAR(10),
-  `email`   VARCHAR(50),
-  `message` TINYTEXT NOT NULL,
+  `id`        INT UNSIGNED NOT NULL,
+  `phone`     CHAR(10),
+  `email`     VARCHAR(50),
+  `message`   TINYTEXT     NOT NULL,
   `is_solved` TINYINT DEFAULT '0',
-  PRIMARY KEY (id)
+  `created`   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated`   DATETIME,
+  PRIMARY KEY (id),
+  KEY `created` (`created`),
+  KEY `is_solved` (`is_solved`)
 )
   ENGINE =InnoDB
   DEFAULT CHARSET =utf8;
