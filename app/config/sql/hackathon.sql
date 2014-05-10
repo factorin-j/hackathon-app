@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS `vote_status` (
 
 CREATE TABLE IF NOT EXISTS `inquiry` (
   `id`        INT UNSIGNED NOT NULL,
-  `phone`     CHAR(10),
   `email`     VARCHAR(50),
   `message`   TINYTEXT     NOT NULL,
   `is_solved` TINYINT DEFAULT '0',
